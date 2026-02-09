@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #1f2933, #111827);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.home-container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.menu button {
+    width: 220px;
+    padding: 15px;
+    margin: 10px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    background: #3b82f6;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu button:hover {
+    background: #2563eb;
+}
+
+
+.game-container {
+    text-align: center;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    font-size: 1.1rem;
+}
+
+#turn-indicator {
+    margin: 15px 0;
+    font-size: 1.2rem;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: #1f2933;
+    border-radius: 10px;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cell:hover {
+    background: #374151;
+}
+
+.controls button {
+    margin: 10px;
+    padding: 10px 20px;
+    background: #10b981;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background: #059669;
+}
