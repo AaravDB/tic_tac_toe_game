@@ -25,3 +25,10 @@ A small, single-page Tic Tac Toe game built with plain HTML, CSS and JavaScript.
 - **No undo/redo or move history**: Moves cannot be reverted once made.
 - **Minimal testing and no CI setup**: Development and testing are manual.
 - **Bot quality**: The included bot is simple and may play suboptimally in many situations.
+
+**Built With**
+
+- **HTML**
+- **CSS**
+- **JavaScript**
+
