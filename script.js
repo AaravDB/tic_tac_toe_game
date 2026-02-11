@@ -160,17 +160,53 @@ function handleDraw() {
     gameNumber++;
     setTimeout(startBotGame, 800);
 }
+function findBestMove(symbol) {
+    for (let pattern of winPatterns) {
+        let [a, b, c] = pattern;
+
+        let values = [board[a], board[b], board[c]];
+
+        if (values.filter(v => v === symbol).length === 2 &&
+            values.includes("")) {
+            
+            if (!board[a]) return a;
+            if (!board[b]) return b;
+            if (!board[c]) return c;
+        }
+    }
+    return -1;
+}
 
 function botMove() {
     if (!gameActive) return;
 
-    for (let i = 0; i < 9; i++) {
-        if (!board[i]) {
-            makeMove(i);
-            break;
-        }
+    let botSymbol = currentTurn;
+    let humanSymbol = botSymbol === "X" ? "O" : "X";
+
+    // 1️⃣ Try to win
+    let move = findBestMove(botSymbol);
+    if (move !== -1) return makeMove(move);
+
+    // 2️⃣ Try to block human
+    move = findBestMove(humanSymbol);
+    if (move !== -1) return makeMove(move);
+
+    // 3️⃣ Take center
+    if (!board[4]) return makeMove(4);
+
+    // 4️⃣ Take a corner
+    const corners = [0, 2, 6, 8];
+    for (let i of corners) {
+        if (!board[i]) return makeMove(i);
+    }
+
+    // 5️⃣ Take any side
+    const sides = [1, 3, 5, 7];
+    for (let i of sides) {
+        if (!board[i]) return makeMove(i);
     }
 }
+
 
 function makeMove(i) {
     board[i] = currentTurn;
